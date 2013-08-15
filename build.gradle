@@ -1,0 +1,55 @@
+apply plugin: 'maven'
+apply plugin: 'groovy'
+group = 'com.sysgears.example'
+version = '1.0'
+
+defaultTasks 'clean', 'build', 'test', 'uberJar'
+
+def compatibilityVersion = 1.5
+def springVersion = '3.2.2.RELEASE'
+def mainClassName = 'com.sysgears.example.Main'
+sourceCompatibility = compatibilityVersion
+targetCompatibility = compatibilityVersion
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+     compile "org.springframework:spring-beans:${springVersion}"
+     compile "org.springframework:spring-context:${springVersion}"
+     compile "org.springframework:spring-core:${springVersion}"
+     compile "org.springframework:spring-expression:${springVersion}"
+     compile "org.springframework:spring-test:${springVersion}"
+
+     compile "javax.inject:javax.inject:1"
+
+     testCompile("org.spockframework:spock-core:0.7-groovy-2.0") {
+         exclude module: 'groovy-all'
+     }
+     testCompile("org.spockframework:spock-spring:0.7-groovy-2.0") {
+         exclude module: 'groovy-all'
+     }
+
+     groovy 'org.codehaus.groovy:groovy:2.1.2'
+}
+
+task uberJar(type: Jar, dependsOn:[':compileJava',':compileGroovy']) {
+    from files(sourceSets.main.output.classesDir)
+    from files(sourceSets.main.output.resourcesDir)
+    from(configurations.runtime.asFileTree.files.collect { zipTree(it) }) {
+        exclude "META-INF/*.SF"
+        exclude "META-INF/*.DSA"
+        exclude "META-INF/*.RSA"
+    }
+    manifest {
+        attributes 'Implementation-Title': 'Groovy app architecture example',
+                'Implementation-Version': version,
+                'Built-By': System.getProperty('user.name'),
+                'Built-Date': new Date(),
+                'Built-JDK': System.getProperty('java.version'),
+                'Main-Class': mainClassName
+    }
+
+}
+

@@ -16,14 +16,17 @@ repositories {
 }
 
 dependencies {
+     // Spring Framework Dependenices
      compile "org.springframework:spring-beans:${springVersion}"
      compile "org.springframework:spring-context:${springVersion}"
      compile "org.springframework:spring-core:${springVersion}"
      compile "org.springframework:spring-expression:${springVersion}"
      compile "org.springframework:spring-test:${springVersion}"
 
+     // JSR 330 annotation support
      compile "javax.inject:javax.inject:1"
 
+     // Spock framework for unit testing
      testCompile("org.spockframework:spock-core:0.7-groovy-2.0") {
          exclude module: 'groovy-all'
      }
@@ -31,9 +34,11 @@ dependencies {
          exclude module: 'groovy-all'
      }
 
+     // Groovy
      groovy 'org.codehaus.groovy:groovy:2.1.2'
 }
 
+// Creates executable standalone JAR file of the application
 task uberJar(type: Jar, dependsOn:[':compileJava',':compileGroovy']) {
     from files(sourceSets.main.output.classesDir)
     from files(sourceSets.main.output.resourcesDir)

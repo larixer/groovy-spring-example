@@ -17,6 +17,9 @@ Use the instructions below to build the sample:
 ### Compile and test, build standalone jar
 `./gradlew`
 
+### Check standalone jar launching
+`java -jar build/libs/groovy-spring-example-1.0.jar Guest`
+
 ## License
 This example is released under version 2.0 of the [Apache License][].
 

@@ -5,7 +5,7 @@
 - [JSR 330][] singleton and prototype annotations
 - [Spock][] unit tests that override Environment values with test ones
 - Example of [JSR 330][] Provider usage
-- [Gradle][] build script that build, test the application and creates standalone JAR
+- [Gradle][] build script that builds, tests the application and creates standalone JAR
 
 ## Building from source
 This sample Groovy application uses a [Gradle][]-based build system.

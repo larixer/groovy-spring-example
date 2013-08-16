@@ -3,6 +3,10 @@ package com.sysgears.example
 import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.core.env.MapPropertySource;
 
+/**
+ * Main class of the application that uses Spring framework and JSR 330 annotations
+ * for dependency injection.
+ */
 class Main
 {
     /**

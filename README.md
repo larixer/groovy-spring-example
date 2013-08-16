@@ -1,4 +1,4 @@
-## Example of Groovy application architecture utilizing Spring IoC container
+## Groovy application using Spring IoC template
 
 ### Features
 - Programmatic [Spring][] configuration using Environment

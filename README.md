@@ -15,7 +15,7 @@ Use the instructions below to build the sample:
 `git clone git://github.com/vlasenko/groovy-spring-example.git`
 
 ### Compile and test, build standalone jar
-`./gradlew build`
+`./gradlew`
 
 ## License
 This example is released under version 2.0 of the [Apache License][].

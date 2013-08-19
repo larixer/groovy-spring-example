@@ -17,14 +17,14 @@ class Singleton {
     private @Inject EnvObject1 envGreetingText
 
     /**
-     * Object that contains greeting subject passed through environment
+     * Object that contains greeting name passed through environment
      */
-    private @Inject EnvObject2 envGreetingSubject
+    private @Inject EnvObject2 envGreetingName
 
     /**
      * Greeter instance factory 
      */
-    private @Inject Provider<Greeter> greeterFactory
+    private @Inject Provider<Greeter> greeterProvider
 
     /**
      * Outputs greeting with 2 instance of greeter.
@@ -32,10 +32,10 @@ class Singleton {
      * @return greeting text
      */
     public String greet() {
-        def greeter1 = greeterFactory.get()
-        def greeter2 = greeterFactory.get()
+        def greeter1 = greeterProvider.get()
+        def greeter2 = greeterProvider.get()
         
-        greeter1.greet(envGreetingText.greetingText, envGreetingSubject.greetingSubject) + "\n" +
-            greeter2.greet(envGreetingText.greetingText, envGreetingSubject.greetingSubject)
+        greeter1.greet(envGreetingText.greetingText, envGreetingName.greetingName) + "\n" +
+            greeter2.greet(envGreetingText.greetingText, envGreetingName.greetingName)
     }
 }

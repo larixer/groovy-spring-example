@@ -12,7 +12,7 @@ This sample Groovy application uses a [Gradle][]-based build system.
 Use the instructions below to build the sample:
 
 ### Check out sources
-`git clone git://github.com/vlasenko/groovy-spring-example.git`
+`git clone https://github.com/vlasenko/groovy-spring-example.git`
 
 ### Compile and test, build standalone jar
 `./gradlew`

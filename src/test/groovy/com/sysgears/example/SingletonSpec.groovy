@@ -17,8 +17,8 @@ class SingletonSpec extends Specification {
         @Override
         public void initialize(ConfigurableApplicationContext ctx) {
             def appProps = new MapPropertySource("appProps", [
-                    greeting: new EnvObject1(greetingText: "TestHello"),
-                    greetingSubject: "TestWorld"
+                    greetingText: new EnvObject1(greetingText: "TestHello"),
+                    greetingName: "TestWorld"
             ] as Map<String, Object>)
 
             ctx.getEnvironment().getPropertySources().addFirst(appProps);

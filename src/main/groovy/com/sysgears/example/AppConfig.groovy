@@ -12,15 +12,16 @@ import javax.inject.Inject
  * IoC configuration of application.
  */
 @Configuration
-@ComponentScan(basePackages = "com.sysgears.example", scopeResolver = Jsr330ScopeMetadataResolver.class)
+@ComponentScan(basePackages = "com.sysgears.example",
+        scopeResolver = Jsr330ScopeMetadataResolver.class)
 class AppConfig {
     private @Inject Environment env
     
     public @Bean EnvObject1 createEnvObject1() {
-        env.getProperty("greeting", EnvObject1.class)
+        env.getProperty("greetingText", EnvObject1.class)
     }
 
     public @Bean EnvObject2 createEnvObject2() {
-        new EnvObject2(greetingSubject: env.getProperty("greetingSubject"))
+        new EnvObject2(greetingName: env.getProperty("greetingName"))
     }
 }

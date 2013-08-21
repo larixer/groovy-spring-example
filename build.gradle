@@ -21,10 +21,12 @@ dependencies {
      compile "org.springframework:spring-context:${springVersion}"
      compile "org.springframework:spring-core:${springVersion}"
      compile "org.springframework:spring-expression:${springVersion}"
-     compile "org.springframework:spring-test:${springVersion}"
 
      // JSR 330 annotation support
      compile "javax.inject:javax.inject:1"
+
+     // Spring unit testing support
+     testCompile "org.springframework:spring-test:${springVersion}"
 
      // Spock framework for unit testing
      testCompile("org.spockframework:spock-core:0.7-groovy-2.0") {

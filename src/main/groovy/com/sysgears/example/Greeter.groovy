@@ -9,6 +9,7 @@ import javax.inject.Named
  */
 @Named
 class Greeter {
+
     /** Current greeter instance no */
     private final int instanceNo
 

@@ -11,12 +11,12 @@ import javax.inject.Named
 class Application {
     
     /** Singleton that greets someone. */
-    private @Inject Singleton singleton
+    private @Inject MultiGreeter multiGreeter
 
     /**
      * Main application logic
      */
     public void run() {
-        println singleton.greet()
+        println multiGreeter.greet()
     }
 }

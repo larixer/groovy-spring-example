@@ -15,14 +15,15 @@ class Main
      * @param args command line arguments
      */
     public static void main(final String[] args) {
+
         // Use Spring annotation-based dependency injection
         def ctx = new AnnotationConfigApplicationContext()
        
         // Parse command line parameters and push
         // all the external configuration to application environment 
         def appProps = new MapPropertySource("appProps", [
-                greetingText: new EnvObject1(greetingText: "Hello"),
-                greetingName: args.length > 0 ? args[0] : "world" 
+                greetInfo: new GreetInfo(text: "Hello",
+                        name: args.length > 0 ? args[0] : "world")
         ] as Map<String, Object>)
 
         // Push environment properties to Spring application context 

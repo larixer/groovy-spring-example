@@ -9,26 +9,25 @@ import spock.lang.Specification
 import javax.inject.Inject
 
 @ContextConfiguration(classes = AppConfig.class, initializers = TestContextInitializer.class)
-class SingletonSpec extends Specification {
-    private @Inject Singleton singleton
+class MultiGreeterSpec extends Specification {
+    private @Inject MultiGreeter multiGreeter
 
     public static class TestContextInitializer implements
             ApplicationContextInitializer<ConfigurableApplicationContext> {
         @Override
         public void initialize(ConfigurableApplicationContext ctx) {
             def appProps = new MapPropertySource("appProps", [
-                    greetingText: new EnvObject1(greetingText: "TestHello"),
-                    greetingName: "TestWorld"
+                    greetInfo: new GreetInfo(text: "TestHello", name: "TestWorld")
             ] as Map<String, Object>)
 
             ctx.getEnvironment().getPropertySources().addFirst(appProps);
         }
     }
 
-    def 'check singleton greeting generation'() {
+    def 'check greeting generation'() {
         expect: 'should generate correct greeting'
 
-        singleton.greet().trim() == '''
+        multiGreeter.greet().trim() == '''
 TestHello, TestWorld! (from greeter 1)
 TestHello, TestWorld! (from greeter 2)
 '''.trim()

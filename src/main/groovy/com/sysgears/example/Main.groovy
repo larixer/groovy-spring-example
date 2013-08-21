@@ -27,13 +27,16 @@ class Main
         ] as Map<String, Object>)
 
         // Push environment properties to Spring application context 
-        ctx.getEnvironment().getPropertySources().addFirst(appProps);
+        ctx.getEnvironment().getPropertySources().addFirst(appProps)
 
         // Point Spring to IoC configuration of the application
-        ctx.register(AppConfig.class);
+        ctx.register(AppConfig.class)
         
         // Wire dependencies 
-        ctx.refresh();
+        ctx.refresh()
+        
+        // Register hook to close application context on JVM shutdown
+        ctx.registerShutdownHook()
         
         // Launch the application
         def app = ctx.getBean(Application.class)

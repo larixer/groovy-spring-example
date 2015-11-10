@@ -5,8 +5,8 @@ version = '1.0'
 
 defaultTasks 'clean', 'build', 'test', 'uberJar'
 
-def compatibilityVersion = 1.5
-def springVersion = '3.2.2.RELEASE'
+def compatibilityVersion = 1.8
+def springVersion = '4.2.2.RELEASE'
 def mainClassName = 'com.sysgears.example.Main'
 sourceCompatibility = compatibilityVersion
 targetCompatibility = compatibilityVersion
@@ -29,15 +29,15 @@ dependencies {
      testCompile "org.springframework:spring-test:${springVersion}"
 
      // Spock framework for unit testing
-     testCompile("org.spockframework:spock-core:0.7-groovy-2.0") {
+     testCompile("org.spockframework:spock-core:1.0-groovy-2.4") {
          exclude module: 'groovy-all'
      }
-     testCompile("org.spockframework:spock-spring:0.7-groovy-2.0") {
+     testCompile("org.spockframework:spock-spring:1.0-groovy-2.4") {
          exclude module: 'groovy-all'
      }
 
      // Groovy
-     groovy 'org.codehaus.groovy:groovy:2.1.2'
+     compile 'org.codehaus.groovy:groovy-all:2.4.4'
 }
 
 // Creates executable standalone JAR file of the application

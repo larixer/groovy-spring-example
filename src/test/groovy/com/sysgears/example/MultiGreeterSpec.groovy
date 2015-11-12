@@ -4,13 +4,18 @@ import org.springframework.context.ApplicationContextInitializer
 import org.springframework.context.ConfigurableApplicationContext
 import org.springframework.core.env.MapPropertySource
 import org.springframework.test.context.ContextConfiguration
+import org.springframework.test.context.TestExecutionListeners
+import org.springframework.test.context.support.DependencyInjectionTestExecutionListener
+import org.springframework.test.context.support.DirtiesContextTestExecutionListener
 import spock.lang.Specification
 
 import javax.inject.Inject
 
 @ContextConfiguration(classes = AppConfig.class, initializers = TestContextInitializer.class)
+@TestExecutionListeners(inheritListeners = false, listeners = [DependencyInjectionTestExecutionListener.class])
 class MultiGreeterSpec extends Specification {
-    private @Inject MultiGreeter multiGreeter
+	private @Inject
+	MultiGreeter multiGreeter
 
     public static class TestContextInitializer implements
             ApplicationContextInitializer<ConfigurableApplicationContext> {

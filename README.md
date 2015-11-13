@@ -21,10 +21,10 @@ Use the instructions below to build the sample:
 `java -jar build/libs/groovy-spring-example-1.0.jar Guest`
 
 ## License
-This example is released under version 2.0 of the [Apache License][].
+This example is released under [Public Domain License][].
 
 [Spring]: http://www.springsource.org/spring-framework
 [JSR 330]: http://download.oracle.com/otndocs/jcp/dependency_injection-1.0-final-oth-JSpec/
 [Spock]: http://docs.spockframework.org/en/latest/
 [Gradle]: http://gradle.org
-[Apache License]: http://www.apache.org/licenses/LICENSE-2.0
+[Public Domain License]: UNLICENSE

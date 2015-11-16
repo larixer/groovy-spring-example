@@ -14,8 +14,8 @@ import javax.inject.Inject
 @ContextConfiguration(classes = AppConfig.class, initializers = TestContextInitializer.class)
 @TestExecutionListeners(inheritListeners = false, listeners = [DependencyInjectionTestExecutionListener.class])
 class MultiGreeterSpec extends Specification {
-	private @Inject
-	MultiGreeter multiGreeter
+    private @Inject
+    MultiGreeter multiGreeter
 
     public static class TestContextInitializer implements
             ApplicationContextInitializer<ConfigurableApplicationContext> {

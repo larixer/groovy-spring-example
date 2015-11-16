@@ -11,8 +11,8 @@ import javax.inject.Inject
 @TestExecutionListeners(inheritListeners = false, listeners = [DependencyInjectionTestExecutionListener.class])
 @ContextConfiguration(classes = AppConfig.class)
 class GreeterSpec extends Specification {
-	private @Inject
-	Greeter greeter
+    private @Inject
+    Greeter greeter
 
     def 'check greeting'() {
         expect: 'should generate correct greet string'
